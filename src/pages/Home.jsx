@@ -66,7 +66,7 @@ export const Home = () => {
             intensity={2}
           />
           <hemisphereLight
-            // skyColor="#b1e1ff"
+            skyColor="#b1e1ff"
             groundColor="#000000"
             intensity={1}
           />

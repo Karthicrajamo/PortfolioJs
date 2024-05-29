@@ -1,10 +1,13 @@
-import {  useState } from "react";
+import { Suspense, useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
 import useAlert from "../hooks/useAlert";
 import Alert from "../components/Alert";
+import Loader from "../components/Loader";
+import { Canvas } from "@react-three/fiber";
+import Fox from "../models/fox";
 
 export const Contact = () => {
-	// const formRef = useRef();
+	const formRef = useRef();
 	const [form, setForm] = useState({
 		name: "",
 		email: "",
@@ -13,24 +16,26 @@ export const Contact = () => {
 	});
 	const [loading, setLoading] = useState(false);
 	const { showAlert, alert, hideAlert } = useAlert();
-
+	const [currentAnimation, setCurrentAnimation] = useState("idle");
 	// const handleChange = ({ target: { name, value } }) => {
 	// 	setForm((currForm) => {
 	// 		return { ...currForm, [name]: value };
 	// 	});
 	// };
-	const handleChange = (
-		event
-	) => {
+	const handleChange = (event) => {
 		const { name, value } = event.target;
 		setForm((currForm) => {
 			return { ...currForm, [name]: value };
 		});
 	};
 
+	const handleFocus = () => setCurrentAnimation("walk");
+	const handleBlur = () => setCurrentAnimation("idle");
+
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		setLoading(true);
+		setCurrentAnimation("hit");
 
 		emailjs
 			.send(
@@ -50,14 +55,15 @@ export const Contact = () => {
 			.then(() => {
 				setLoading(false);
 				showAlert({
-					// show: true,
+					show: true,
 					text: "Thank you for your message 😉",
 					type: "success",
 				});
 
 				setTimeout(() => {
-					hideAlert();
-					// hideAlert(false);
+					// hideAlert();
+					setCurrentAnimation("idle");
+					hideAlert(false);
 					setForm({
 						name: "",
 						email: "",
@@ -69,8 +75,9 @@ export const Contact = () => {
 			.catch((error) => {
 				setLoading(false);
 				console.log(error);
+				setCurrentAnimation("idle");
 				showAlert({
-					// show: true,
+					show: true,
 					text: "I didn't recive your message 😉",
 					type: "danger",
 				});
@@ -84,7 +91,7 @@ export const Contact = () => {
 				<h1 className="head-text">Get in Touch</h1>
 
 				<form
-					// ref={formRef}
+					ref={formRef}
 					onSubmit={handleSubmit}
 					className="w-full flex flex-col gap-7 mt-14"
 				>
@@ -98,6 +105,8 @@ export const Contact = () => {
 							required
 							value={form.name}
 							onChange={handleChange}
+							onFocus={handleFocus}
+							onBlur={handleBlur}
 						/>
 					</label>
 					<label className="text-black-500 font-semibold">
@@ -110,10 +119,12 @@ export const Contact = () => {
 							required
 							value={form.email}
 							onChange={handleChange}
+							onFocus={handleFocus}
+							onBlur={handleBlur}
 						/>
 					</label>
 					<label className="text-black-500 font-semibold">
-						Phone (eg: 123-123-1233)
+						Phone
 						<input
 							type="tel"
 							name="phone"
@@ -123,6 +134,8 @@ export const Contact = () => {
 							placeholder="+91"
 							value={form.phone}
 							onChange={handleChange}
+							onFocus={handleFocus}
+							onBlur={handleBlur}
 						/>
 					</label>
 					<label className="text-black-500 font-semibold">
@@ -134,6 +147,8 @@ export const Contact = () => {
 							placeholder="Write your thoughts here..."
 							value={form.message}
 							onChange={handleChange}
+							onFocus={handleFocus}
+							onBlur={handleBlur}
 						/>
 					</label>
 					<button type="submit" className="btn" disabled={loading}>
@@ -141,7 +156,34 @@ export const Contact = () => {
 					</button>
 				</form>
 			</div>
-			<div></div>
+			<div className="lg:w-1/2 w-full lg:h-auto md:h-[550px] h-[350px]">
+				<Canvas
+					camera={{
+						position: [0, 0, 5],
+						fov: 75,
+						near: 0.1,
+						far: 1000,
+					}}
+				>
+					<directionalLight position={[0, 0, 1]} intensity={2.5} />
+					<ambientLight intensity={1} />
+					<pointLight position={[5, 10, 0]} intensity={2} />
+					<spotLight
+						position={[10, 10, 10]}
+						angel={0.15}
+						penumbra={1}
+						intensity={2}
+					/>
+					<Suspense fallback={<Loader />}>
+						<Fox
+							currentAnimation={currentAnimation}
+							position={[0.6, 0.15, 0]}
+							rotation={[12.629, -0.6, 0]}
+							scale={[0.5, 0.5, 0.5]}
+						/>
+					</Suspense>
+				</Canvas>
+			</div>
 		</section>
 	);
 };
