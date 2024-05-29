@@ -32,7 +32,7 @@ function Island({ isRotating, setIsRotating, setCurrentStage, ...props }) {
 		setIsRotating(true);
 
 		const clientX = event.touches ? event.touches.clientX : event.clientX;
-
+		event.onTouchMove
 		lastX.current = clientX;
 	};
 
@@ -56,7 +56,7 @@ function Island({ isRotating, setIsRotating, setCurrentStage, ...props }) {
 
 			lastX.current = clientX;
 
-			rotationSpeed.current = delta * 0.05 * Math.PI;
+			rotationSpeed.current = delta * 0.01 * Math.PI;
 		}
 	};
 
