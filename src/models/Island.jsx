@@ -25,9 +25,7 @@ function Island({ isRotating, setIsRotating, setCurrentStage, ...props }) {
 
 	const dampingFactor = 0.95;
 
-	const handlePointerDown = (
-		event
-	) => {
+	const handlePointerDown = (event) => {
 		// when mouse pointer comes inside
 		event.stopPropagation();
 		event.preventDefault();
@@ -38,18 +36,14 @@ function Island({ isRotating, setIsRotating, setCurrentStage, ...props }) {
 		lastX.current = clientX;
 	};
 
-	const handlePointerUp = (
-		event
-	) => {
+	const handlePointerUp = (event) => {
 		// when mouse pointer goes out
 		event.stopPropagation();
 		event.preventDefault();
 		setIsRotating(false);
 	};
 
-	const handlePointerMove = (
-		event
-	) => {
+	const handlePointerMove = (event) => {
 		event.stopPropagation();
 		event.preventDefault();
 
@@ -58,11 +52,11 @@ function Island({ isRotating, setIsRotating, setCurrentStage, ...props }) {
 
 			const delta = (clientX - lastX.current) / viewport.width;
 
-			islandRef.current.rotation.y += delta * 0.01 * Math.PI;
+			islandRef.current.rotation.y += delta * 0.05 * Math.PI;
 
 			lastX.current = clientX;
 
-			rotationSpeed.current = delta * 0.01 * Math.PI;
+			rotationSpeed.current = delta * 0.05 * Math.PI;
 		}
 	};
 
