@@ -42,6 +42,7 @@ import c from "../assets/icons/icons8-c.svg";
 import php from "../assets/icons/icons8-php.svg";
 import dj from "../assets/icons/django.png";
 import neulancers from "../assets/icons/neulancers-logo-white.png";
+import p1 from "../assets/images/logo.webp"
 
 export const skills = [
 	{ imageUrl: css, name: "CSS", type: "Frontend" },
@@ -127,11 +128,47 @@ export const experience = [
 		title: "FullStack Developer",
 		company_name: "Neulancers",
 		icon: neulancers,
-		iconBg: "#accbe1",
+		iconBg: "#accbc0",
 		date: "2023 - 2024",
 		points: [
 			"Led the end-to-end development of webapp, serving as both Backend and Frontend developer, with a focus on implementing dynamic rendering for the Product page using NextJs.",
 			"Worked with a team to plan and build  Ecommerce website as a backend developer using Django.",
 		],
 	},
+	
 ];
+
+export const socialLinks = [
+	{
+		name: "Contact",
+		iconUrl: contact,
+		link:"/contact",
+	},
+	{
+		name: "Github",
+		iconUrl: github,
+		link:"https://github.com/karthicrajamo",
+	},
+	{
+		name: "LinkedIn",
+		iconUrl: linkedin,
+		link:"https://https://www.linkedin.com/in/karthic-raja/",
+	}
+]
+
+export const projects = [
+	{
+		iconUrl: p1,
+		theme: "btn-back-orange",
+		name: "Game Hub",
+		description: "Developed a production-grade React application for building a Game Hub.",
+		link: "https://github.com/Karthicrajamo/Game_hub--React_vite_ts"
+	},
+	{
+		iconUrl: dj,
+		theme: "btn-back-yellow",
+		name: "Shopping cart(Django Api)",
+		description: "Developed a complete shopping cart system using Django Rest API.",
+		link: "https://github.com/Karthicrajamo/Django_dev"
+	}
+]

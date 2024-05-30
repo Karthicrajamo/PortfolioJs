@@ -5,6 +5,8 @@ import {
 	VerticalTimeline,
 	VerticalTimelineElement,
 } from "react-vertical-timeline-component";
+import 'react-vertical-timeline-component/style.min.css';
+
 
 export const About = () => {
 	return (
@@ -64,25 +66,25 @@ export const About = () => {
 											<img
 												src={experiences.icon}
 												alt={experiences.company_name}
-												className="w-[10%] h-[10%] object-contain"
+												className="w-[60%] h-60%] object-contain"
 											/>
 										</div>
 									}
-									// contentStyle={{
-									// 	borderBottom: "8px",
-									// 	borderStyle:"solid",
-									// 	borderBottomColor: experiences.iconBg,
-									// 	boxShadow: "none",
-									// }}
+									contentStyle={{
+										borderBottom: "8px",
+										borderStyle:"solid",
+										borderBottomColor: experiences.iconBg,
+										boxShadow: "none",
+									}}
 								>
 									<div>
-										<h3>{experiences.title}</h3>
-										<p>{experiences.company_name}</p>
+										<h3 className="text-black text-xl font-poppins font-semibold">{experiences.title}</h3>
+										<p className="text-black-500 font-medium text-base" style={{margin:0}}>{experiences.company_name}</p>
 									</div>
 
-									<ul>
+									<ul className="my-5 list-disc ml-5 space-y-2">
 										{experiences.points.map((point, index) => {
-											return <li key={index} className="w-[45%]">{point}</li>;
+											return <li key={index} className="text-black-500/50 font-normal pl-1 text-sm">{point}</li>;
 										})}
 									</ul>
 								</VerticalTimelineElement>
