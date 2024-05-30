@@ -11,23 +11,23 @@ const Navbar = () => {
 				<NavLink
 					to="/about"
 					className={({ isActive }) =>
-						isActive ? "text-blue-600" : "text-black"
+						isActive ? "blue1-gradient_text" : "text-black"
 					}
 				>
 					About
 				</NavLink>
-				{/* <NavLink
+				<NavLink
 					to="/projects"
 					className={({ isActive }) =>
-						isActive ? "text-blue-600" : "text-black"
+						isActive ? "blue1-gradient_text hidden sm:block" : "text-black hidden sm:block"
 					}
 				>
 					Projects
-				</NavLink> */}
+				</NavLink>
 				<NavLink
 					to="/contact"
 					className={({ isActive }) =>
-						isActive ? "text-blue-600" : "text-black"
+						isActive ? "blue1-gradient_text" : "text-black"
 					}
 				>
 					Contact

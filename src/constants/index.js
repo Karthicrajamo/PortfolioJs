@@ -166,7 +166,7 @@ export const projects = [
 	},
 	{
 		iconUrl: dj,
-		theme: "btn-back-yellow",
+		theme: "btn-back-green",
 		name: "Shopping cart(Django Api)",
 		description: "Developed a complete shopping cart system using Django Rest API.",
 		link: "https://github.com/Karthicrajamo/Django_dev"

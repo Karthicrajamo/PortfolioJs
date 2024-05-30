@@ -33,8 +33,8 @@ const HomeInfo = ({ currentStage }) => {
 					Works with Mid-Level Projects
 				</p>
                 
-				<Link to="/about" className="neo-brutalism-white neo-btn">
-					Visit my portfolio
+				<Link to="/projects" className="neo-brutalism-white neo-btn">
+					Visit my projects
 					<img src={arrow} alt="arrow" className="w-4 h-4 object-contain" />
 				</Link>
 			</div>
