@@ -168,7 +168,7 @@ export const socialLinks = [
 	{
 		name: "LinkedIn",
 		iconUrl: linkedin,
-		link: "https://https://www.linkedin.com/in/karthic-raja/",
+		link: "https://www.linkedin.com/in/karthic-raja/",
 	}
 ]
 
