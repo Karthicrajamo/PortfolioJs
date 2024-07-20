@@ -42,6 +42,7 @@ import c from "../assets/icons/icons8-c.svg";
 import php from "../assets/icons/icons8-php.svg";
 import dj from "../assets/icons/django.png";
 import neulancers from "../assets/icons/neulancers-logo-white.png";
+import harness from "../assets/images/HarnessLogo.png";
 import p1 from "../assets/images/logo.webp"
 
 export const skills = [
@@ -135,24 +136,39 @@ export const experience = [
 			"Worked with a team to plan and build  Ecommerce website as a backend developer using Django.",
 		],
 	},
-	
+	{
+		title: "Software Engineer Trainee",
+		company_name: "Harness DigiTech Private Ltd",
+		icon: harness,
+		iconBg: "rgba(55, 136, 229, 0.65)",
+		date: "2024",
+		points: [
+			"Collaborate with cross-functional teams to define, design, and ship new features.",
+			"Write clean, maintainable, and efficient code using React Native.",
+			"Assist in the integration of RESTful APIs and third-party services.",
+			"Participate in code reviews to maintain high-quality code.",
+			"Debug and resolve technical issues to ensure a smooth user experience.",
+			"Continuously learn and implement best practices in mobile app development.",
+		],
+	},
+
 ];
 
 export const socialLinks = [
 	{
 		name: "Contact",
 		iconUrl: contact,
-		link:"/contact",
+		link: "/contact",
 	},
 	{
 		name: "Github",
 		iconUrl: github,
-		link:"https://github.com/karthicrajamo",
+		link: "https://github.com/karthicrajamo",
 	},
 	{
 		name: "LinkedIn",
 		iconUrl: linkedin,
-		link:"https://https://www.linkedin.com/in/karthic-raja/",
+		link: "https://https://www.linkedin.com/in/karthic-raja/",
 	}
 ]
 
